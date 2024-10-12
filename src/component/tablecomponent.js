@@ -376,24 +376,74 @@ const TableComponent = ({ theme }) => {
           sx={{ color: tableStyles.color }}
         >
           <TableHead sx={{ backgroundColor: tableStyles.backgroundColor }}>
-            <TableRow sx={{ ...tableStyles }}>
-              <TableCell>#</TableCell>
-              <TableCell>Status</TableCell>
-              <TableCell>Client</TableCell>
-              <TableCell>
-                <TableSortLabel
-                  active={orderBy === "total"}
-                  direction={orderDirection}
-                  onClick={() => handleSortRequest("total")}
-                >
-                  Total
-                </TableSortLabel>
+            <TableRow sx={{ backgroundColor: tableStyles.backgroundColor }}>
+              <TableCell
+                sx={{
+                  backgroundColor: tableStyles.backgroundColor,
+                  color: tableStyles.color,
+                }}
+              >
+                #
               </TableCell>
-              <TableCell>Issued Date</TableCell>
-              <TableCell>Balance</TableCell>
-              <TableCell>Action</TableCell>
+              <TableCell
+                sx={{
+                  backgroundColor: tableStyles.backgroundColor,
+                  color: tableStyles.color,
+                }}
+              >
+                Status
+              </TableCell>
+              <TableCell
+                sx={{
+                  backgroundColor: tableStyles.backgroundColor,
+                  color: tableStyles.color,
+                }}
+              >
+                Client
+              </TableCell>
+              <TableCell
+                sx={{
+                  backgroundColor: tableStyles.backgroundColor,
+                  color: tableStyles.color,
+                }}
+              >
+                <TableSortLabel
+                active={orderBy === "total"}
+                direction={orderDirection}
+                onClick={() => handleSortRequest("total")}
+              >
+                <span style={{ backgroundColor: tableStyles.backgroundColor,color:tableStyles.color }}>Total</span>
+              </TableSortLabel>
+              
+               
+              </TableCell>
+              <TableCell
+                sx={{
+                  backgroundColor: tableStyles.backgroundColor,
+                  color: tableStyles.color,
+                }}
+              >
+                Issued Date
+              </TableCell>
+              <TableCell
+                sx={{
+                  backgroundColor: tableStyles.backgroundColor,
+                  color: tableStyles.color,
+                }}
+              >
+                Balance
+              </TableCell>
+              <TableCell
+                sx={{
+                  backgroundColor: tableStyles.backgroundColor,
+                  color: tableStyles.color,
+                }}
+              >
+                Action
+              </TableCell>
             </TableRow>
           </TableHead>
+
           <TableBody sx={{ ...tableStyles }}>
             {filteredData
               .slice(page * rowsPerPage, (page + 1) * rowsPerPage)
@@ -406,20 +456,40 @@ const TableComponent = ({ theme }) => {
                     {renderStatusIcon(row.status)}
                   </TableCell>
                   <TableCell
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      gap: "10px",
-                      flexWrap: "wrap",
-                      overflow: "hidden",
-                    }}
+                    style={
+                      {
+                        // display: "flex",
+                        // // flexDirection: "column",
+                        // alignItems: "center",
+                        // gap: "10px",
+                        // flexWrap: "wrap",
+                        // overflow: "hidden",
+                      }
+                    }
                     sx={{ color: tableStyles.color }}
                   >
-                    <Avatar>{row.avatar}</Avatar>
-                    {row.name}
-                    <br />
-                    {row.email}
+                    <div
+                      style={{
+                        display: "flex",
+                        // // flexDirection: "column",
+                        // alignItems: "center",
+
+                        gap: "10px",
+                        // flexWrap: "wrap",
+                        // overflow: "hidden",
+                      }}
+                    >
+                      <div>
+                        <Avatar>{row.avatar}</Avatar>
+                      </div>
+                      <div>
+                        {row.name}
+                        <br />
+                        {/* </div>
+                      <div> */}
+                        {row.email}
+                      </div>
+                    </div>
                   </TableCell>
                   <TableCell sx={{ color: tableStyles.color }}>
                     {row.total}
