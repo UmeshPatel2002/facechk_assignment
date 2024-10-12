@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+**Overview**
+This project is built using Next.js and Material UI (MUI), incorporating a responsive table that lists invoices with search, sorting, filtering, and pagination functionality. The project also features a light/dark theme toggle, with the theme preference stored in the browser’s local storage, ensuring it persists across sessions.
 
-## Getting Started
+**Key Features**
+Dynamic Invoice Table with:
+Search
+Sorting
+Filtering
+Pagination
+Theme Toggle between light and dark modes, saved in localStorage
+Custom Fonts loaded locally
+Built with Next.js and styled using Material UI
 
-First, run the development server:
+**Main Files:**
+src/app/layout.js: Entry point for the application, where global styles and theme management are set up.
+src/component/TableComponent.js: Renders the dynamic table with sorting, filtering, and pagination.
+src/theme/ThemeToggle.js: Button for switching between light and dark themes.
+src/app/globals.css: Defines global styles, including theme-specific styles.
+src/app/fonts/: Stores custom fonts for use throughout the project.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**Installation & Setup**
+_Prerequisites_
+Node.js (ensure it's installed on your machine)
+Next.js and Material UI (MUI) libraries installed (handled automatically through dependencies)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+**Implementation Details**
+_Theme Toggle_
+The ThemeToggle component allows users to switch between light and dark modes. The current theme is stored in the browser’s localStorage to persist across page reloads. The component uses Material UI’s IconButton and theme icons (Brightness4Icon for dark mode and Brightness7Icon for light mode).
+It uses useEffect to update the document’s data-theme attribute, which triggers CSS changes for light or dark mode.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+_Global CSS for Theme Management_
+Theme variables are defined in globals.css. Depending on the value of data-theme (light or dark), different styles are applied throughout the application.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+_TableComponent_
+The TableComponent renders a responsive table that displays a list of invoices. It includes:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Search: Users can search by name or email.
+Sorting: Users can sort invoices by total amount.
+Filtering: Filter invoices by their status (paid, pending, sent).
+Pagination: Handles large data sets by paginating the invoice list.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+_Custom Fonts_
+The project uses custom fonts loaded locally from the src/app/fonts folder. Two fonts, GeistSans and GeistMono, are imported into the layout for use throughout the application.
 
-## Deploy on Vercel
+**How to Run the Project**
+Ensure Node.js is installed.
+Clone the repository and run npm install to install dependencies.
+Run **npm run dev** to start the development server.
+Access the app at http://localhost:3000.
+Use the Theme Toggle button in the top-right corner to switch between light and dark modes.
+Use the table's search, sort, filter, and pagination features to browse through the invoice data.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Future Improvements**
+Add more advanced filtering options (e.g., filter by date range or client).
+Improve accessibility with ARIA labels and keyboard navigation.
+Implement server-side fetching for dynamic data.
+Enhance table responsiveness for smaller screen sizes.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Conclusion**
+This project showcases how to build a responsive and accessible Next.js application using Material UI. It implements common features like search, filtering, sorting, and pagination in a table, along with theme management. The architecture is flexible, making it easy to extend the project with new features.
