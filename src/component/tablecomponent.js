@@ -456,27 +456,13 @@ const TableComponent = ({ theme }) => {
                     {renderStatusIcon(row.status)}
                   </TableCell>
                   <TableCell
-                    style={
-                      {
-                        // display: "flex",
-                        // // flexDirection: "column",
-                        // alignItems: "center",
-                        // gap: "10px",
-                        // flexWrap: "wrap",
-                        // overflow: "hidden",
-                      }
-                    }
                     sx={{ color: tableStyles.color }}
                   >
                     <div
                       style={{
                         display: "flex",
-                        // // flexDirection: "column",
-                        // alignItems: "center",
-
                         gap: "10px",
-                        // flexWrap: "wrap",
-                        // overflow: "hidden",
+                        overflow: "hidden",
                       }}
                     >
                       <div>
@@ -485,8 +471,6 @@ const TableComponent = ({ theme }) => {
                       <div>
                         {row.name}
                         <br />
-                        {/* </div>
-                      <div> */}
                         {row.email}
                       </div>
                     </div>
@@ -522,10 +506,6 @@ const TableComponent = ({ theme }) => {
         rowsPerPage={rowsPerPage}
         onRowsPerPageChange={handleChangeRowsPerPage}
         rowsPerPageOptions={[5, 10, 25, 50, 100]}
-        // sx={{
-        //   color: tableStyles.color,
-        //   backgroundColor: tableStyles.backgroundColor,
-        // }}
         sx={{
           color: tableStyles.color,
           backgroundColor: tableStyles.backgroundColor,
